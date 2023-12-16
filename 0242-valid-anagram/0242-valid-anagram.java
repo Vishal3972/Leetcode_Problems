@@ -3,13 +3,13 @@ class Solution {
         if(s.length() != t.length()){
             return false;
         }
-        int ch[] = new int[256];
+        int ch[] = new int[26];
         for(int i=0; i<s.length(); i++){
-            int temp = s.charAt(i);
+            int temp = s.charAt(i)-'a';
             ch[temp] = ch[temp]+1;
         }
         for(int i=0; i<t.length(); i++){
-            int temp = t.charAt(i);
+            int temp = t.charAt(i)-'a';
             ch[temp] = ch[temp]-1;
         }
         for(int i=0; i<ch.length; i++){
