@@ -1,9 +1,26 @@
 class Solution {
     public int maxProductDifference(int[] nums) {
-        Arrays.sort(nums);
-        int n=nums.length;
-        int ans1=nums[0]*nums[1];
-        int ans2=nums[n-1]*nums[n-2];
-        return ans2-ans1;
+        int bigger=0;
+        int secondbigger=0;
+        int smaller=Integer.MAX_VALUE;
+        int secondsmaller=Integer.MAX_VALUE;
+        
+        for(int i:nums){
+            if(i>bigger){
+                secondbigger=bigger;
+                bigger=i;
+            }else{
+                secondbigger=Math.max(secondbigger,i);
+            }
+            
+            if(i<smaller){
+                secondsmaller=smaller;
+                smaller=i;
+            }else{
+                secondsmaller=Math.min(secondsmaller,i);
+            }
+        }
+        
+        return bigger*secondbigger-smaller*secondsmaller;
     }
 }
