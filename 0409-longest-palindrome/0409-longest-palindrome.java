@@ -3,7 +3,8 @@ class Solution {
         Map<Character,Integer> map = new HashMap<>();
         int count = 0;
         boolean b = false;
-        for(char c:s.toCharArray()){
+        for(int i=0;i<s.length();i++){
+            char c = s.charAt(i);
             map.put(c,map.getOrDefault(c,0)+1);
         }
         
